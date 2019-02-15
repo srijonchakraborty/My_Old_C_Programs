@@ -1,0 +1,92 @@
+// This code written by Srijon Chakraborty
+// Find all my graphics code in http://srijon.softallybd.com/my-c-graphics-works/
+// All my source are available on http://srijon.softallybd.com
+// C Graphics Simple Scenario of Bagladesh Village
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+#include<graphics.h>
+#include<conio.h> //For Turbo C
+void main()
+{
+    int i=80;
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, “C:\\TC\\BGI”);
+    printf(“\n\n\n\n\n\t\tPress any key to see the Drawing…..”);
+    getch(); 
+    cleardevice();
+    setbkcolor(LIGHTGRAY);
+    setcolor(GREEN);
+    setfillstyle(SOLID_FILL,GREEN);
+    rectangle(185-50,190-50,275-50,255-50);
+    floodfill(186-50,191-50,GREEN);
+    /*Remember first draw the rectangle then the circle*/
+    setcolor(RED);
+    setfillstyle(SOLID_FILL, RED);
+    circle(220-50,220-50,20);
+    floodfill(222-50,222-50,RED);
+    setcolor(BROWN);
+    setfillstyle(SOLID_FILL,BROWN);
+    rectangle(129,140,134,320);//drawing rectangle for stick
+    floodfill(130,141,BROWN);
+    setcolor(BLUE);
+    setfillstyle(SOLID_FILL,BLUE);
+    line(0,100,640,100);//drawing line for sky
+    floodfill(1,1,BLUE);
+    setcolor(GREEN);
+    setfillstyle(SOLID_FILL,GREEN);
+    line(0,100,640,100);
+    arc(40,100,0,180,40);//arc for plants
+    floodfill(39,98,GREEN);
+    arc(40+(i),100,0,180,40);//arc for plants
+    floodfill(39+(i),98,GREEN);
+    arc(40+(2*i),100,0,180,40);//arc for plants
+    floodfill(39+(2*i),98,GREEN);
+    arc(40+(3*i),100,0,180,40); //arc for plants
+    floodfill(39+(3*i),98,GREEN);
+    arc(40+(4*i),100,0,180,40); //arc for plants
+    floodfill(39+(4*i),98,GREEN);
+    arc(40+(5*i),100,0,180,40); //arc for plants
+    floodfill(39+(5*i),98,GREEN);
+    arc(40+(6*i),100,0,180,40); //arc for plants
+    floodfill(39+(6*i),98,GREEN);
+    arc(40+(7*i),100,0,180,40); //arc for plants
+    floodfill(39+(7*i),98,GREEN);
+    setcolor(RED);
+    setfillstyle(SOLID_FILL,RED);
+    ellipse(320,35,0,360,45,25);
+    floodfill(320,35,RED);
+    line(100,20,270,20); //sun ray’s
+    line(370,20,540,20); //sun ray’s
+    line(100,50,270,30); //sun ray’s
+    line(370,30,540,50); //sun ray’s
+    line(270,40,220,50); //sun ray’s
+    line(370,40,420,50); //sun ray’s
+    setcolor(BROWN);//now draw house
+    setfillstyle(LINE_FILL,BROWN);
+    line(10,200,110,200);
+    line(10,200,60,150);
+    line(110,200,60,150);
+    floodfill(21,199,BROWN);//triangle up
+    setfillstyle(WIDE_DOT_FILL,BROWN);
+    rectangle(20,200,100,290); //body
+    floodfill(21,210,BROWN);
+    setfillstyle(SLASH_FILL,BROWN);
+    rectangle(10,290,110,310); //base of house
+    floodfill(21,300,BROWN);
+    setcolor(LIGHTBLUE);//river drwing
+    line(640,150,0,420);
+    setfillstyle(SOLID_FILL,LIGHTBLUE);
+    floodfill(620,400,LIGHTBLUE);
+    setcolor(BROWN);//drawing boat
+    line(300,300,430,300);
+    line(300,300,270,270);
+    line(270,270,460,270);
+    line(430,300,460,270);
+    setfillstyle(SOLID_FILL,BROWN);
+    floodfill(300,290,BROWN);
+    setcolor(8);
+    rectangle(320,269,410,220);
+    setfillstyle(SOLID_FILL,8);
+    floodfill(322,260,8);
+    getch();
+    closegraph();
+}
