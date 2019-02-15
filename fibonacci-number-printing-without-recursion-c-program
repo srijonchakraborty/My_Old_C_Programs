@@ -1,0 +1,30 @@
+// This code written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/lop12/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Fibonacci number printing without recursion
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int x,i,j,sum,n;
+    clrscr();
+
+    printf(“\n\n\tHow many Fibonacci number you want to see :”);
+    scanf(“%d”,&n);
+
+    i=0;
+    j=1;
+    sum=j;
+
+    for(x=1; x<=n; x++)
+    {
+        printf(“\n\t%d”,sum);
+        sum=i+j;
+        i=j;
+        j=sum;
+    }
+    getch();
+}
