@@ -1,0 +1,46 @@
+// This code written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/selection-sort/
+// All my source are available on http://srijon.softallybd.com
+// C program Simple Selection Sort
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+    int a[100],n,i,j,smallest,index;
+    clrscr();
+    printf(“Enter array size:”);
+    scanf(“%d”,&n);
+    printf(“Enter array elements:”);
+    for(i=0; i<n; i++)
+    {
+        scanf(“%d”,&a[i]);
+    }
+    
+    //sorting logic
+    for(i=0; i<n; i++) 
+    {
+        smallest=a[i];
+        index=i;
+        for(j=i+1; j<n; j++)
+        {
+            if(smallest>a[j])
+            {
+                smallest=a[j];
+                index=j;
+            }
+        }
+        a[index]=a[i];
+        a[i]=smallest;
+    }
+
+    printf(“\nSorted array:”);
+    for(i=0; i<n; i++) //printing sorted array
+    {
+        printf(” %d “,a[i]);
+    }
+
+    getch();
+    return 0;
+}
