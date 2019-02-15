@@ -1,0 +1,30 @@
+// This code written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/tower-of-hanoi-with-movement-counter/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Tower of Hanoi with movement counter C/C++
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+int count=1;
+
+void THanoi(int n,char s,char T,char D)
+{
+    if(n==1)
+        printf("n %d. Move from %c --> %c",count++,s,D);
+    else
+    {
+        THanoi(n-1,s,D,T);
+        printf("n %d. Move from %c --> %c",count++,s,D);
+        THanoi(n-1,T,s,D);
+    }
+}
+void main(void)
+{
+    int n;
+    clrscr();
+    printf("nEnter Number of Disk:");
+    scanf("%d",&n);
+    THanoi(n,'S','T','D');
+    getch();
+}
