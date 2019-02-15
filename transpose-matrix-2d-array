@@ -1,0 +1,56 @@
+// This code written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/transpose-a-matrix/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Transpose A Matrix 2D Array
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+#define size 50
+void MatrixTranspose(int p[size][size],int r,int c)
+{
+    int i,j;
+    printf("\nYour Transpose Matrix:\n");
+    for(i=0; i<c; i++)
+    {
+        for(j=0; j<r; j++)
+        {
+            printf("%d  ",p[j][i]);
+        }
+        printf("\n");
+    }
+}
+
+int main()
+{
+    clrscr();
+    int array[size][size],i,j,row,col;
+
+    printf("\nEnter number row:");
+    scanf("%d",&row);
+    printf("\nEnter number col:");
+    scanf("%d",&col);
+
+    printf("\nEnter element %d of Matrix:\n",(row*col));
+    for(i=0; i<row; i++)
+    {
+        for(j=0; j<col; j++)
+        {
+            scanf("%d",&array[i][j]);
+        }
+    }
+    printf("\nYour Main Matrix:\n");
+    for(i=0; i<row; i++)
+    {
+        for(j=0; j<col; j++)
+        {
+            printf("%d  ",array[i][j]);
+        }
+        printf("\n");
+    }
+
+    MatrixTranspose(array,row,col);
+
+    getch();
+    return 0;
+}
