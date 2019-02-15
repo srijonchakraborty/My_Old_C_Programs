@@ -1,0 +1,75 @@
+// This code written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/printing-the-values-of-diagonal-of-a-matrix/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Printing the value’s of Diagonals of a Matrix(2D Array)
+// C/C++ program Simple Print both diagonals of a matrix (2D Array)
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+#define size 50
+void diagonal1(int b[size][size],int r)
+{
+    int i;
+    for(i=0; i<r; i++)
+        printf("\n%d",b[i][i]);
+}
+
+void diagonal2(int b[size][size],int r)
+{
+    int i;
+    for(i=0; i<r; i++)
+        printf("\n%d",b[i][r-(1+i)]);
+}
+void print_matrix(int b[size][size],int col,int ro)
+{
+    int i,j;
+    printf("The matrix is:\n");
+    printf("-------------\n");
+
+    for(i=0; i<ro; i++)
+    {
+        for(j=0; j<col; j++)
+        {
+            printf("%d  ",b[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main()
+{
+    int a[size][size],row,col,i,j;
+
+    clrscr();
+    printf("\nHow many row in A matrix: ");
+    scanf("%d",&row);
+    printf("\nHow many coloums in A matrix: ");
+    scanf("%d",&col);
+    if(row==col)
+    {
+        printf("\nEnter %d element's of matrix:",(row*col));
+
+        for(i=0; i<row; i++)
+        {
+            for(j=0; j<col; j++)
+            {
+                scanf("%d",&a[i][j]);
+            }
+            printf("\n");
+        }
+
+        print_matrix(a,col,row);
+
+        printf("\nFirst diagonal is: \n");
+        diagonal1(a,row);
+
+        printf("\nSecond diagonal is: \n");
+        diagonal2(a,row);
+    }
+    else
+        printf("\nYour martrix is not squre please enter same value for ROW & Coloum's.");
+
+    getch();
+    return 0;
+}
