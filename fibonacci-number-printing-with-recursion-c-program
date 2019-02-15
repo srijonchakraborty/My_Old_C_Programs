@@ -1,0 +1,29 @@
+// This code written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/fibonacci-number-printing-with-recursion/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Fibonacci number printing with recursion
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+int fibonacci(int m)
+{
+    if(m<=2)
+        return 1;
+    else
+        return fibonacci(m-1)+fibonacci(m-2);
+}
+
+int main()
+{
+    int n,i;
+    clrscr();
+    printf("\nHow many fibonacci number you want to see:");
+    scanf("%d",&n);
+    printf("\nSo the number's are");
+    printf("\n-------------------");
+    for(i=1; i<=n; i++)
+        printf("\n%d",fibonacci(i));
+    getch();
+    return 0;
+}
