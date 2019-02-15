@@ -1,0 +1,149 @@
+// This code was written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/insert-values-in-a-link-list-after-creating-link-list-in-different-ways/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Insert values in a link list after creating link list in different ways Using C/C++ structure
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+void ins_ele();
+
+typedef struct list
+{
+    int info;
+    list *next;
+};
+
+list *p,*q,*t,*r; //global variable's of link list
+
+void create_list()
+{
+    int x;
+    p=new list;
+    printf("\n\t\t\tCreating A Link List");
+    printf("\n\t\t\t--------------------");
+    printf("\nEnter 1st value for Link list:");
+    scanf("%d",&p->info);
+    q=p;
+    printf("\nEnter value for Link list(to end link list Enter negative value):");
+    scanf("%d",&x);
+    while(x>=0)
+    {
+        t=new list;
+        t->info=x;
+        q->next=t;
+        q=t;
+        scanf("%d",&x);
+    }
+    q->next=NULL;
+}
+
+void print_list()
+{
+    int inter_count=1;
+    t =p;
+    printf("\nYour Link list:");
+    printf("\n--------------");
+    while (t)
+    {
+        printf("\nList info %d :%d ",inter_count,t->info);
+        t=t->next;
+        inter_count++;
+    }
+}
+void ins_first()
+{
+    list *temp;
+    temp=new list;
+    printf("\nEnter value for new node:");
+    scanf("%d",&temp->info);
+    q=p;
+    p=temp;
+    p->next=q;
+    print_list();
+    ins_ele();
+
+}
+void ins_mid()
+{
+    int x_p,y_p;
+    list *temp;
+    temp=new list;
+    clrscr();
+    print_list();
+    printf("\nEnter two value between which you like to insert...");
+    printf("\nValue 1:");
+    scanf("%d",&x_p);
+    printf("\nValue 2:");
+    scanf("%d",&y_p);
+    printf("\nEnter value for new node:");
+    scanf("%d",&temp->info);
+    q=p->next;
+    t=p;
+    while((q->info!=y_p)&&(t->info!=x_p)&&(t!=NULL))
+    {
+
+        t=q;
+        q=q->next;
+    }
+    if((q->info==y_p)&&(t->info==x_p))
+    {
+        t->next=temp;
+        temp->next=q;
+    }
+
+    print_list();
+    ins_ele();
+
+}
+void ins_last()
+{
+    list *temp;
+    temp=new list;
+    printf("\nEnter value for new node:");
+    scanf("%d",&temp->info);
+    t=p;
+    while(t->next)
+        t=t->next;
+    t->next=temp;
+    temp->next=NULL;
+
+    print_list();
+    ins_ele();
+}
+
+void ins_ele()
+{
+    int x;
+    char var;
+
+    printf("\nDo you like to add node(y/n):");
+    var=getche();
+
+    if(var=='y')
+    {
+        clrscr();
+        printf("\nWhere do you like to insert...");
+        printf("\n\nIf in first place then enter 1");
+        printf("\n\nIf in middle place then enter 2");
+        printf("\n\nIf in last place then enter 3");
+        printf("\n\nEnter your Choice:");
+        scanf("%d",&x);
+        if(x==1)
+            ins_first();
+        else if(x==2)
+            ins_mid();
+        else if(x==3)
+            ins_last();
+    }
+}
+
+int main()
+{
+    clrscr();
+    create_list();
+    print_list();
+    ins_ele();
+    getch();
+    return 0;
+}
