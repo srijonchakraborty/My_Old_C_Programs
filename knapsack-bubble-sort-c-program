@@ -1,0 +1,83 @@
+// This code was written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/knapsack-fractional-with-bubble-sort/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Knapsack (fractional) With bubble Sort C/C++
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+#define Size_Knapsack 15.00
+#define MAX 30
+void bubbleSort_make_track(double arr1[],double arr2[],int arr3[], int n)
+{
+    int swapped = 1,i,j = 0,tmp2;
+    double tmp;
+    while (swapped)
+    {
+        swapped = 0;
+        j++;
+        for (i = 0; i < n - j; i++)
+        {
+            if (arr1[i] < arr1[i + 1])
+            {
+                tmp = arr1[i];
+                arr1[i] = arr1[i + 1];
+                arr1[i + 1] = tmp;
+                swapped = 1;
+
+                tmp = arr2[i];
+                arr2[i] = arr2[i + 1];
+                arr2[i + 1] = tmp;
+
+                tmp2 = arr3[i];
+                arr3[i] = arr3[i + 1];
+                arr3[i + 1] = tmp2;
+            }
+        }
+    }
+}
+
+int main()
+{
+    int a[MAX],n,i;
+    double price[MAX],weight[MAX],price_weight[MAX],Max_Price=0.00,left_space=Size_Knapsack,temp_weight;
+    printf("\t\t\tFractional Knapsack");
+    printf("\n\t\t\t-------------------");
+    printf("\n\tEnter Number Of Elements:");
+    scanf("%d",&n);
+    for(i=0; i<n; i++)
+        a[i]=i+1;//set item number
+    printf("\n\tEnter Prices:");
+    for(i=0; i<n; i++)
+        scanf("%lf",&price[i]);
+    printf("\n\tEnter Weights:");
+    for(i=0; i<n; i++)
+        scanf("%lf",&weight[i]);
+    for(i=0; i<n; i++)
+        price_weight[i]=price[i]/weight[i];
+    bubbleSort_make_track(price_weight,weight,a,n);
+    for(i=0; i<n; i++) //Knapsack
+    {
+        if(weight[i]<left_space)
+        {
+            Max_Price=Max_Price+price_weight[i]*weight[i];
+            printf("\nItem %d Picked:%lf unit",a[i],weight[i]);
+            temp_weight=weight[i];
+        }
+        else
+        {
+            Max_Price=Max_Price+price_weight[i]*left_space;
+            printf("\nItem %d Picked:%lf unit",a[i],left_space);
+            temp_weight=left_space;
+        }
+        if(left_space>0)
+        {
+            left_space=left_space-temp_weight;
+        }
+
+    }
+    printf("\nMAX value:%lf",Max_Price);
+    printf("\nLeft Knapscak:%lf",left_space);
+    getch();
+    return 0;
+}
