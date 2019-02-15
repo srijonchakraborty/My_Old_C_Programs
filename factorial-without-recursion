@@ -1,0 +1,21 @@
+// This code written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/printing-the-values-of-diagonal-of-a-matrix/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Factorial without recursion
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+    int n,sum=1,i;
+    clrscr();
+    printf("\nEnter the number for factorial:");
+    scanf("%d",&n);
+    for(i=1; i<=n; i++)
+        sum*=i;
+    printf("\nFactorial of %d is: %d",n,sum);
+    getch();
+    return 0;
+}
