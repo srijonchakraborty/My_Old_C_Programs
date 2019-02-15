@@ -1,0 +1,72 @@
+// This code was written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/heap-sort-ascending-order/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Heap Sort Ascending order C/C++
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#define left(i) (2*i)+1
+#define right(i) (2*i)+2
+
+void max_heapify(double a[],int i,int size)
+{
+    int l,r,largest;
+    double temp;
+    l=left(i);
+    r=right(i);
+    (l<=size-1 && a[l]>a[i])? largest = l:largest = i;
+    if(r<=size-1 && a[r]>a[largest])
+        largest = r;
+    if(largest != i)
+    {
+        temp = a[i];
+        a[i]=a[largest];
+        a[largest]=temp;
+        max_heapify(a,largest,size);
+    }
+}
+
+void build_max_heap(double a[],int size)
+{
+    int i;
+    for(i=size/2 – 1 ; i>=0; i–)
+        max_heapify(a,i,size);
+}
+
+void heap_sort(double a[],int size)
+{
+    int i;
+    double temp;
+    build_max_heap(a,size);
+    for(i=size-1; i>0; i–)
+    {
+        temp=a[i];
+        a[i]=a[0];
+        a[0]=temp;
+        size=size – 1;
+        max_heapify(a,0,size);
+    }
+}
+
+int main()
+{
+    int size,i;
+    double *ar;
+    printf(“\t\t\tHeap Sort With Fractional Values”);
+    printf(“\n\t\t\t——————————–“);
+    printf(“\nNO Of Element:”);
+    scanf(“%d”,&size);
+    ar=(double *)malloc(size*sizeof(double));
+    printf(“\nEnter Elements:\n”);
+    for(i=0; i<size; i++)
+        scanf(“%lf”,&ar[i]);
+    heap_sort(ar,size);
+    printf(“\nThe Sorted Array:\n”);
+    for(i=0; i<size; i++)
+        printf(“%lf “,ar[i]);
+    printf(“\nThanks”);
+    getch();
+    return 0;
+}
