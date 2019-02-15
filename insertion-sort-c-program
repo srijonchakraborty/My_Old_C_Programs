@@ -1,0 +1,41 @@
+// This code written by Srijon Chakraborty
+// Main source code link in http://srijon.softallybd.com/insertion-sort/
+// All my source are available on http://srijon.softallybd.com
+// C program Simple Insertion sort
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+    int a[30],i,j,n,temp;
+    clrscr();//use those for TC.exe
+    //Insertion sorting
+    printf(“\n\tEnter your array size:”);
+    scanf(“%d”,&n);
+
+    for(i=0; i<n; i++)
+    {
+        printf(“\n\tEnter your array %dth values:”,(i+1));
+        scanf(“%d”,&a[i]);
+    }
+    //main code for sorting
+    for(j=1; j<n; j++)
+    {
+        i=j-1;
+        temp=a[j];
+        while((i>=0)&&(a[i]>temp))
+        {
+            a[i+1]=a[i];
+            i–;
+        }
+        a[i+1]=temp;
+    }
+    printf(“\n\tHree is sorted array\n\t”);
+    //printing the sorted array
+    for(i=0; i<n; i++)
+        printf(“%d  “,a[i]);
+
+    getch();//use those for TC.exe
+    return 0;
+}
