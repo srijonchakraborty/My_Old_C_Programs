@@ -1,0 +1,79 @@
+// This code was written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/search-element-in-link-list-by-value/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Search element in link list by value Using Structure C/C++
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+typedef struct list
+{
+    int info;
+    list *next;
+};
+
+list *p,*q,*t; //global variable's of link list
+
+void create_list()
+{
+    int x;
+    p=new list;
+    printf("\nEnter 1st value for Link list:");
+    scanf("%d",&p->info);
+    q=p;
+    printf("\nEnter value for Link list(to end link list Enter negative value):");
+    scanf("%d",&x);
+    while(x>=0)
+    {
+        t=new list;
+        t->info=x;
+        q->next=t;
+        q=t;
+        scanf("%d",&x);
+    }
+
+    q->next=NULL;
+}
+
+void print_list()
+{
+    int inter_count=1;
+    t =p;
+    printf("\nYour Link list:");
+    printf("\n--------------");
+    while (t)
+    {
+        printf("\nList info %d :%d ",inter_count,t->info);
+        t=t->next;
+        inter_count++;
+    }
+}
+
+void search_ele()
+{
+    int x_p;
+    printf("\n\nEnter Value for search:");
+    scanf("%d",&x_p);
+    q=p;
+    t->next=p;
+
+    while(x_p!=q->info&&t->next!=NULL)
+    {
+        t=q;
+        q=q->next;
+    }
+    if(x_p==q->info)
+        printf("\n!!!Found!!!");
+    else
+        printf("\n!!!Not found!!!");
+}
+
+int main()
+{
+    clrscr();
+    create_list();
+    search_ele();
+    print_list();
+    getch();
+    return 0;
+}
