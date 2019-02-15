@@ -1,0 +1,55 @@
+// This code written by Srijon Chakraborty
+// Main source code link in http://srijon.softallybd.com/bubble-sorting/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Bubble Sorting
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+void bubbleSort(int arr[], int n)
+{
+    int swapped = 1,i,j = 0,tmp,count=1;
+    while (swapped)
+    {
+        swapped = 0;
+        j++;
+        for (i = 0; i < n - j; i++)
+        {
+            if (arr[i] > arr[i + 1])
+            {
+       			tmp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = tmp;
+                swapped = 1;
+            }
+        }
+        printf("\n\tPass %d:",count);//print passing
+        count++;
+        for(i=0; i<n; i++)
+            printf("%d  ",arr[i]);
+    }
+
+    printf("\n\tHree is buble sorted array\n\t");//print final    array
+    //printing the sorted array
+    for(i=0; i<n; i++)
+        printf("%d  ",arr[i]);
+}
+
+int main()
+{
+    int a[30],i,j,n,temp;
+    clrscr();//use those for TC.exe
+    //Bubble sorting
+    printf("\n\tEnter your array size:");
+    scanf("%d",&n);
+
+    for(i=0; i<n; i++)
+    {
+        printf("\n\tEnter your array %dth values:",(i+1));
+        scanf("%d",&a[i]);
+    }
+
+    bubbleSort(a,n);
+    getch();//use those for TC.exe
+    return 0;
+}
