@@ -1,0 +1,70 @@
+// This code written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/sum-of-diagonal-of-a-matrix/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Sum of Diagonals of a Matrix
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+#define size 50
+
+void diagonal1(int b[size][size],int r)
+{
+    int sum1=0,i=0;
+
+    for(i=0; i<r; i++)
+        sum1=sum1+b[i][i];
+    printf("%d",sum1);
+}
+
+void diagonal2(int b[size][size],int r)
+{
+    int sum2=0,k=0,i;
+
+    for(i=0; i<r; i++)
+        sum2=sum2+b[i][r-(1+i)];
+    printf("%d",sum2);
+}
+
+int main()
+{
+    int a[size][size],row,col,i,j;
+
+    clrscr();
+    printf("\nHow many row in A matrix: ");
+    scanf("%d",&row);
+
+    printf("\nHow many coloums in A matrix: ");
+    scanf("%d",&col);
+
+    printf("\n");
+
+    for(i=0; i<row; i++)
+    {
+        for(j=0; j<col; j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("The A matrix is: \n");
+
+    for(i=0; i<row; i++)
+    {
+        for(j=0; j<col; j++)
+        {
+            printf("%d  ",a[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\nSum of First diagonal is: \n");
+    diagonal1(a,row);
+
+    printf("\nSum of Second diagonal is: \n");
+    diagonal2(a,row);
+
+    getch();
+    return 0;
+}
