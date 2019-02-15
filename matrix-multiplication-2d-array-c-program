@@ -1,0 +1,86 @@
+// This code written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/transpose-a-matrix/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Matrix Multiplication (2D Array)
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+// Output Image link http://srijon.softallybd.com/wp-content/uploads/2012/05/Output.jpg  
+//                OR https://pasteboard.co/I1eOd4q.jpg
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+    int a[20][20],b[20][20],row1,col1,row2,col2,i,j,k,sum=0,res[20][20];
+    clrscr();
+
+    printf("\nEnter the number of row of Matrix A:");
+    scanf("%d",&row1);
+    printf("\nEnter the number of col of Matrix A:");
+    scanf("%d",&col1);
+    printf("\nEnter the number of row of Matrix B:");
+    scanf("%d",&row2);
+    printf("\nEnter the number of col of Matrix B:");
+    scanf("%d",&col2);
+
+    printf("\nEnter %d element of Matrix A:",(row1*col1));
+    for(i=0; i<row1; i++)
+    {
+        for(j=0; j<col1; j++)
+            scanf("%d",&a[i][j]);
+    }
+
+    printf("\nEnter %d element of Matrix B:",(row2*col2));
+    for(i=0; i<row2; i++)
+    {
+        for(j=0; j<col2; j++)
+            scanf("%d",&b[i][j]);
+    }
+
+    printf("\nHere is Matrix A:\n");
+    for(i=0; i<row1; i++)
+    {
+        for(j=0; j<col1; j++)
+            printf("%d  ",a[i][j]);
+        printf("\n");
+    }
+
+    printf("\nHere is Matrix B:\n");
+    for(i=0; i<row2; i++)
+    {
+        for(j=0; j<col2; j++)
+            printf("%d  ",b[i][j]);
+        printf("\n");
+    }
+
+    //multiplication
+    if(col1==row2)
+    {
+        for(i=0; i<row1; i++)
+        {
+            for(j=0; j<col2; j++)
+            {
+                for(k=0; k<row2; k++)
+                {
+                    sum=sum+(a[i][k]*b[k][j]);
+                }
+
+                res[i][j] =sum;
+                sum=0;
+            }
+        }
+
+        printf("\nHere is Product Matrix:\n");
+        for(i=0; i<row1; i++)
+        {
+            for(j=0; j<col2; j++)
+                printf("%d  ",res[i][j]);
+            printf("\n");
+        }
+    }
+
+    else
+        printf("!!!This kind of two D array can't be multiplied!!!");
+    getch();
+    return 0;
+}
