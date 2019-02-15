@@ -1,0 +1,59 @@
+// This code was written by Srijon Chakraborty
+// Main source code link on http://srijon.softallybd.com/create-a-simple-link-list/
+// All my source codes are available on http://srijon.softallybd.com
+// C/C++ program Simple Create a simple link list using structure 
+// This Code was written in Turbo C So if you are using latest IDE then please remove "conio.h" and its fuctions
+
+#include<stdio.h>
+#include<conio.h>
+
+typedef struct list
+{
+    int info;
+    list *next;
+};
+
+list *p,*q,*t; //global variable's of link list
+
+void create_list()
+{
+    int x;
+    p=new list;
+    printf("\nEnter 1st value for Link list:");
+    scanf("%d",&p->info);
+    q=p;
+    printf("\nEnter value for Link list(to end link list Enter negative value):");
+    scanf("%d",&x);
+    while(x>=0)
+    {
+        t=new list;
+        t->info=x;
+        q->next=t;
+        q=t;
+        scanf("%d",&x);
+    }
+    q->next=NULL;
+}
+
+void print_list()
+{
+    int inter_count=1;
+    t =p;
+    printf("\nYour Link list:");
+    printf("\n--------------");
+    while (t)
+    {
+        printf("\nList info %d :%d ",inter_count,t->info);
+        t=t->next;
+        inter_count++;
+    }
+}
+
+int main()
+{
+    clrscr();
+    create_list();
+    print_list();
+    getch();
+    return 0;
+}
